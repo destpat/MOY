@@ -1,4 +1,4 @@
-function config($routeProvider) {
+/*function config($routeProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl: 'views/main.html',
@@ -16,11 +16,13 @@ function run($rootScope, $location){
 	$rootScope.$watch(path, function(newVal, oldVal){
 		$rootScope.activetab = newVal;
 	});
-}
-angular.module('app', ['ngRoute'])
-    .config(config)
+}*/
+angular.module('app', [])
+    //.config(config)
     .controller('mainController', mainController)
-    .service('todoService', todoService)
+    //.service('todoService', todoService)
     /*.factory('', )*/
-    .run(run);
+    //.run(run);
+
+//('app', ['ngRoute'])
 
