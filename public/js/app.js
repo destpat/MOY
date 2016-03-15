@@ -18,9 +18,9 @@ function run($rootScope, $location){
 	});
 }*/
 angular.module('app', [])
-    //.config(config)
+    .config(config)
     .controller('mainController', mainController)
-    //.service('todoService', todoService)
+    .service('userService', userService)
     /*.factory('', )*/
     //.run(run);
 

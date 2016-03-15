@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 
 
-var inscriptionSchema = new mongoose.Schema({
+var userSchema = new mongoose.Schema({
     email: String,
     pseudo: String,  
     created: {type: Date, default: Date.now},
@@ -21,24 +21,24 @@ var inscriptionSchema = new mongoose.Schema({
     interest: String,
     zip: Number,
     yold:{type: Number, min: 18, max: 65}
-    
-    
+
+
 
 });
 
-var  Inscription= {
+var  User= {
 
-    model: mongoose.model('Inscription', todoSchema),
+    model: mongoose.model('User', userSchema),
 
     create: function(req, res) {
-        Inscription.model.create({
+        User.model.create({
             email: req.body.email,
             pseudo: req.body.pseudo,
             created: req.body.created,
-            updated: req.body.updated,
+            //updated: req.body.updated,
             password: req.body.password,
             password2: req.body.password2,
-            sex: req.body.sex,
+            /*sex: req.body.sex,
             city: req.body.city,
             heigth: req.body.height,
             shape: req.body.shape,
@@ -49,24 +49,27 @@ var  Inscription= {
             img: req.body.img,
             interest: req.body.interest,
             zip: req.body.zip,
-            yold: req.body.yold
+            yold: req.body.yold*/
         }, function(){
             res.sendStatus(200);
         })
     },
 
     findAll: function(req, res) {
-        Todo.model.find(function (err, data) {
+        User.model.find(function (err, data) {
             res.send(data);
         });
     },
 
     update: function(req, res){
-        Todo.model.findByIdAndUpdate(req.params.id, {
-            updated: req.body.updated,
+        User.model.findByIdAndUpdate(req.params.id, {
+            email: req.body.email,
+            pseudo: req.body.pseudo,
+            created: req.body.created,
+            //updated: req.body.updated,
             password: req.body.password,
             password2: req.body.password2,
-            sex: req.body.sex,
+            /*sex: req.body.sex,
             city: req.body.city,
             heigth: req.body.height,
             shape: req.body.shape,
@@ -77,17 +80,17 @@ var  Inscription= {
             img: req.body.img,
             interest: req.body.interest,
             zip: req.body.zip,
-            yold: req.body.yold
+            yold: req.body.yold*/
         }, function(){
             res.sendStatus(200);
         })
     },
 
     delete: function(req, res){
-        Inscription.model.findByIdAndRemove(req.params.id, function(){
+        User.model.findByIdAndRemove(req.params.id, function(){
             res.sendStatus(200);
         })
     } 
 }
 
-module.exports = Inscription;
+module.exports = User;
